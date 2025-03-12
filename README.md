@@ -1,29 +1,13 @@
-<<<<<<< HEAD
-# FirstRails
-=======
-# README
- 
+Hello and good day!
+This is my first To-Do List application built using Rails. It provides a simple way to manage tasks efficiently.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features:  
+✅ Add new tasks  
+✅ Edit existing tasks  
+✅ Delete tasks  
+✅ Mark tasks as complete using a checkbox  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> 3327cb4 (Initial commit - Added Todo list project)
+Technologies Used:  
+- Ruby on Rails – Backend framework  
+- PostgreSQL – Database  
+- VSCode (HTML, CSS) – Frontend styling 
