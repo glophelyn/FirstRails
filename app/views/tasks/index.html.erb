@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>To-Do List</h1>
+
+  <!-- Error Messages -->
+  <% if @task && @task.errors.any? %>
+    <div class="error-messages">
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Task Form -->
+  <%= form_with(model: Task.new, local: true, html: { class: "task-form", id: "task-form" }) do |form| %>
+    <%= form.text_field :title, placeholder: "New task", id: "task-input" %>
+    <%= form.submit "Add Task", class: "btn btn-add" %>
+  <% end %>
+
+  <!-- Task List -->
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <div>
+          <%= check_box_tag "task-#{task.id}", task.completed, task.completed, class: "checkbox", onchange: "this.form.submit();" %>
+          <%= task.title %>
+        </div>
+        <div>
+          <%= link_to "Edit", edit_task_path(task), class: "btn btn-edit" %>
+          <%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<!-- JavaScript Validation -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("task-form");
+    const input = document.getElementById("task-input");
+
+    form.addEventListener("submit", function(event) {
+        if (input.value.trim() === "") {
+            event.preventDefault(); // Stop form submission
+            alert("Task title cannot be empty!"); // Show alert
+        }
+    });
+});
+</script>
